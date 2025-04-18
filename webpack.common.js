@@ -1,43 +1,41 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
-  entry: {
-    app: './src/index.js',
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/template.html',
-        favicon: './src/assets/icons/favicon.svg'
+      template: './src/template.html',
+      // favicon: './src/assets/icons/favicon.svg',
     }),
   ],
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
-  // for correct error evaluation:
   devtool: "eval-source-map",
   devServer: {
     watchFiles: ["./src/template.html"],
   },
   module: {
-// if CSS is a separate file
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
-// if imgs used in JS
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
     ],
-    plugins: ['prettier'],
   },
 };
+

@@ -1,0 +1,197 @@
+/* reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  :root {
+    --system-ui: system-ui, Arial, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Symbol";
+    font-size: 14px;
+}
+/* style */
+main{
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* dropdowns */
+.navigation a{
+text-decoration: none;
+color: inherit;
+padding: 5px;
+}
+.navigation a:hover{
+    background-color: white;
+    width: 100%;
+}
+.navigation{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 67px;
+    border-bottom: 1.5px solid black;
+}
+.dropdown{
+height: 100%;
+position: relative;
+}
+.dropdown:first-of-type{
+    width: 105px;
+}
+.dropdown-toggle{
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-toggle:hover{
+    background-color:rgba(0, 0, 255, 0.094);
+}
+.dropdown-svg{
+   padding: 0;
+    fill:black;
+    width: 30px;
+    height: 30px;
+}
+.dropdown-menu{
+    display: none;
+}
+.dropdown-menu.active{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* padding: 5px; */
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+
+/* carousel */
+.carouselBlock{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.carousel-container{
+  position: relative;
+  align-self: center;
+  overflow: hidden;
+  width: 200px;
+}
+.next-img, .prev-img{
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-img{
+  left: 10px;
+}
+
+.next-img{
+  right: 10px;
+}
+.lower-btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+}
+.img-btn{
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+}
+.img-btn.active{
+  background-color: grey;
+}
+.img-btn:hover{
+  background-color: grey;
+}
+.carousel-items img{
+  /* width: 200px; */
+  max-width: 200px;
+  height: auto;
+}
+.carousel-items{
+  /* transition: transform 2s ease-in-out; */
+  display: flex;
+}
+
+/* form */
+.formBlock{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding-left: 50px;
+}
+.form > p{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+.error-text{
+  height: 2rem;
+  line-height: 1;
+  margin-bottom: 3px;
+  font-size: 0.9rem;
+  /* justify-self: end; */
+  color: rgb(233, 62, 27);
+}
+input{
+  border-radius: 5px;
+  border: 1.5px solid black;
+  width: 200px;
+}
+input.invalid{
+  border-color: rgb(233, 62, 27);
+}
+input.valid{
+  border-color: rgb(0, 122, 6);
+}
+.form.btn{
+  margin-bottom: 15px;
+}

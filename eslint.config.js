@@ -1,6 +1,7 @@
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
+import globals from 'globals'
 
 export default defineConfig([
 	{
@@ -13,7 +14,13 @@ export default defineConfig([
 			"no-unused-vars": "warn",
 			"no-undef": "warn",
 		},
-        ignores: ["dist/", "node_modules/", "build/"]
+		languageOptions: {
+			globals: {
+			...globals.node,
+			...globals.browser,
+			},
+		},
+		ignores: ["dist/", "node_modules/", "build/", "**webpack.*.js"]
 	},
     eslintConfigPrettier,
 ]);
